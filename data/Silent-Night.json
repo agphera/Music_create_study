@@ -1,0 +1,13 @@
+{
+    "title": "Silent-Night",
+    "audio_file": "Silent-Night.mp3",
+    "artist": "E's Jammy Jams",
+    "duration": 123,
+    "genre": "Jazz",
+    "description": "A calm and relaxing jazz rendition of the Christmas carol 'Silent Night'.",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "instrument": ["Piano", "Saxophone"],
+    "moods": ["warm", "calm", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"
+}

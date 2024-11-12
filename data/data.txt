@@ -1,0 +1,152 @@
+music_data = [
+    {
+        "title": "Silent Night (Instrumental Jazz)",
+        "artist": "E's Jammy Jams",
+        "duration": 123,
+        "genre": "Jazz",
+        "description": "A calm and relaxing jazz rendition of the Christmas carol 'Silent Night'.",
+        "keywords": ["calm", "relaxing", "Christmas", "jazz"],
+        "instrument": "Instrumental",
+        "moods": ["calm", "relaxing"]
+    },
+    {
+        "title": "Oh Little Town of Bethlehem (Instrumental)",
+        "artist": "E's Jammy Jams",
+        "duration": 142,
+        "genre": "Jazz",
+        "description": "A calm instrumental version of 'Oh Little Town of Bethlehem'.",
+        "keywords": ["Christmas", "instrumental", "calm"],
+        "instrument": "Instrumental",
+        "moods": ["calm", "relaxing"]
+    },
+    {
+        "title": "Joy to the World (Instrumental Jazz)",
+        "artist": "E's Jammy Jams",
+        "duration": 132,
+        "genre": "Jazz",
+        "description": "A jazz instrumental of the Christmas classic 'Joy to the World'.",
+        "keywords": ["Christmas", "jazz", "instrumental"],
+        "instrument": "Instrumental",
+        "moods": ["joyful", "festive"]
+    },
+    {
+        "title": "Auld Lang Syne (Instrumental Jazz)",
+        "artist": "E's Jammy Jams",
+        "duration": 143,
+        "genre": "Jazz",
+        "description": "Jazz rendition of the traditional song 'Auld Lang Syne'.",
+        "keywords": ["jazz", "New Year", "calm"],
+        "instrument": "Instrumental",
+        "moods": ["reflective", "nostalgic"]
+    },
+    {
+        "title": "Auld Lang Syne (Instrumental)",
+        "artist": "Jingle Punks",
+        "duration": 122,
+        "genre": "Jazz",
+        "description": "A soothing instrumental version of 'Auld Lang Syne'.",
+        "keywords": ["instrumental", "New Year", "calm"],
+        "instrument": "Instrumental",
+        "moods": ["calm", "nostalgic"]
+    },
+    {
+        "title": "O Christmas Tree (Instrumental)",
+        "artist": "Jingle Punks",
+        "duration": 163,
+        "genre": "Jazz",
+        "description": "Instrumental jazz version of 'O Christmas Tree'.",
+        "keywords": ["Christmas", "jazz", "calm"],
+        "instrument": "Instrumental",
+        "moods": ["calm", "festive"]
+    },
+    {
+        "title": "give it to me",
+        "artist": "HaRmoNiE",
+        "duration": 180,
+        "genre": "Lo-fi Hip Hop",
+        "description": "A warm and cozy lo-fi track with repetitive beat.",
+        "keywords": ["warm", "lo-fi", "repetitive"],
+        "instrument": "Lo-fi Hip Hop",
+        "moods": ["warm", "cozy"]
+    },
+    {
+        "title": "sharing an umbrella",
+        "artist": "woonso",
+        "duration": 180,
+        "genre": "Lo-fi Hip Hop",
+        "description": "Lo-fi hip hop with a warm guitar melody.",
+        "keywords": ["warm", "guitar", "lo-fi"],
+        "instrument": "Guitar",
+        "moods": ["warm", "cozy"]
+    },
+    {
+        "title": "coast",
+        "artist": "Michael Cieri",
+        "duration": 180,
+        "genre": "Lo-fi Hip Hop",
+        "description": "A warm and romantic lo-fi track.",
+        "keywords": ["warm", "romantic", "lo-fi"],
+        "instrument": "Lo-fi Hip Hop",
+        "moods": ["warm", "romantic"]
+    },
+    {
+        "title": "Jay44 Winter Track",
+        "artist": "Jay44",
+        "duration": 180,
+        "genre": "Lo-fi Hip Hop",
+        "description": "A winter-themed lo-fi track with cozy vibes.",
+        "keywords": ["winter", "lo-fi", "cozy"],
+        "instrument": "Lo-fi Hip Hop",
+        "moods": ["warm", "peaceful"]
+    },
+    {
+        "title": "THE DAY BEFORE CHRISTMAS",
+        "artist": "ODTSound",
+        "duration": 180,
+        "genre": "Lo-fi Hip Hop",
+        "description": "A vintage lo-fi beat with a warm, Christmas feel.",
+        "keywords": ["Christmas", "vintage", "lo-fi"],
+        "instrument": "Lo-fi Hip Hop",
+        "moods": ["warm", "vintage"]
+    },
+    {
+        "title": "Cold and Warm",
+        "artist": "Dayz Musiq",
+        "duration": 180,
+        "genre": "Lo-fi Hip Hop",
+        "description": "Lo-fi track with electronic sounds and warm vibes.",
+        "keywords": ["electronic", "warm", "lo-fi"],
+        "instrument": "Lo-fi Hip Hop",
+        "moods": ["warm", "electronic"]
+    }
+]
+
+# Define the sample rate and file extension for all files
+sample_rate = 48000
+file_extension = "mp3"
+
+# Create JSON files for each music item in the dataset
+for i, music in enumerate(music_data, 1):
+    json_data = {
+        "key": "",
+        "artist": music["artist"],
+        "sample_rate": sample_rate,
+        "file_extension": file_extension,
+        "description": music["description"],
+        "keywords": music["keywords"],
+        "duration": music["duration"],
+        "bpm": "",
+        "genre": music["genre"],
+        "title": music["title"],
+        "name": f"track_{i}",
+        "instrument": music["instrument"],
+        "moods": music["moods"]
+    }
+    
+    # Write each music entry to a separate JSON file
+    with open(f"/mnt/data/{json_data['name']}.json", "w") as json_file:
+        json.dump(json_data, json_file, indent=4)
+
+# Provide a list of generated JSON files for confirmation
+json_files = [f"track_{i}.json" for i in range(1, len(music_data) + 1)]
+json_files
