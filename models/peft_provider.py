@@ -1,28 +1,40 @@
-# models/peft_provider.py
-
-from peft import PromptEncoderConfig, PromptEncoder
 import torch
 import torch.nn as nn
+from peft import PromptEncoder, PromptEncoderConfig
 
 class PEFTPConditionProvider(nn.Module):
     def __init__(self, prompt_length, hidden_size, num_transformer_submodules, num_attention_heads, num_layers):
         super().__init__()
 
         self.config = PromptEncoderConfig(
-            task_type="TEXT_GENERATION",  # 작업 유형
-            num_virtual_tokens=prompt_length,  # 학습 가능한 가상 토큰의 수
-            token_dim=hidden_size,  # 모델의 hidden_size와 동일
-            num_transformer_submodules=num_transformer_submodules,  # Transformer 서브모듈 수
-            num_attention_heads=num_attention_heads,  # Attention 헤드 수
-            num_layers=num_layers,  # 레이어 수
-            encoder_hidden_size=hidden_size,  # Prompt 인코더의 hidden_size
-            encoder_num_layers=2,  # Prompt 인코더 레이어 수
-            encoder_dropout=0.1  # Dropout 확률
+            task_type="TEXT_GENERATION",
+            num_virtual_tokens=prompt_length,
+            token_dim=hidden_size,
+            encoder_hidden_size=hidden_size,
+            encoder_num_layers=2,  # Default: 2
+            encoder_dropout=0.1,  # Default: 0.1
+            num_transformer_submodules=num_transformer_submodules  # 추가 설정
         )
+
         self.prompt_encoder = PromptEncoder(self.config)
+        self.num_virtual_tokens = prompt_length
 
     def forward(self, tokens):
+        # Generate indices for virtual tokens
         batch_size = tokens.size(0)
-        prompt_embeds = self.prompt_encoder()
-        prompt_expanded = prompt_embeds.unsqueeze(0).expand(batch_size, -1, -1)
-        return torch.cat([prompt_expanded, tokens], dim=1)
+        indices = torch.arange(self.num_virtual_tokens, device=tokens.device).unsqueeze(0).expand(batch_size, -1)
+
+        # Generate prompt embeddings using indices
+        prompt_embeds = self.prompt_encoder(indices)
+
+        # Ensure prompt_embeds has the correct shape
+        if len(prompt_embeds.shape) == 4:  # (1, batch_size, num_virtual_tokens, token_dim)
+            prompt_embeds = prompt_embeds.squeeze(0)  # (batch_size, num_virtual_tokens, token_dim)
+
+        # Embed tokens into the same dimension as prompt_embeds
+        token_embedding = nn.Embedding(50257, prompt_embeds.size(-1)).to(tokens.device)
+        token_embeds = token_embedding(tokens)  # (batch_size, seq_len, token_dim)
+
+        # Concatenate prompts with token embeddings
+        return torch.cat([prompt_embeds, token_embeds], dim=1)
+
