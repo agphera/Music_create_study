@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "audio_file": "christmas-chill-lofi-60s.mp3",
+            "duration": 61,
+            "genre": "lofi",
+            "description": " dreamy beats and warm melody with old lofi moods",
+            "keywords": ["old", "warm", "slow"],
+            "moods": ["warm", "dreamy", "cozy"],
+            "sample_rate": 48000,
+            "file_extension" : "mp3"
+        }
+    ]
+}

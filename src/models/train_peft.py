@@ -33,6 +33,7 @@ def train_model(model, tokenizer, dataloader, device, epochs, grad_acc_steps, lr
             # 프롬프트 생성
             prompts = model.condition_provider(text_tokens)
 
+            # *** 오류 현장 ***
             # 입력 텐서를 모델이 요구하는 형태로 전처리
             # 모델이 요구하는 num_codebooks와 hidden_size를 가져옴
             num_codebooks = model.lm.num_codebooks

@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "audio_file": "Auld-Lang-SyneJ.mp3",
+            "duration": 122,
+            "genre": "Jazz",
+            "description": "christmas carlo jazz with happy and warm mood in slow tempo",
+            "keywords": ["warm", "winter", "slow", "christmas"],
+            "moods": ["warm", "happy", "cozy"],
+            "sample_rate": 48000,
+            "file_extension" : "mp3"
+        }
+    ]
+}

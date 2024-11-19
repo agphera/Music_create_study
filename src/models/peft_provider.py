@@ -11,8 +11,8 @@ class PEFTPConditionProvider(nn.Module):
             num_virtual_tokens=prompt_length,
             token_dim=hidden_size,
             encoder_hidden_size=hidden_size,
-            encoder_num_layers=2,  # Default: 2
-            encoder_dropout=0.1,  # Default: 0.1
+            encoder_num_layers=2, 
+            encoder_dropout=0.1,  
             num_transformer_submodules=num_transformer_submodules  # 추가 설정
         )
 
@@ -20,14 +20,12 @@ class PEFTPConditionProvider(nn.Module):
         self.num_virtual_tokens = prompt_length
 
     def forward(self, tokens):
-        # Generate indices for virtual tokens
+
         batch_size = tokens.size(0)
         indices = torch.arange(self.num_virtual_tokens, device=tokens.device).unsqueeze(0).expand(batch_size, -1)
 
-        # Generate prompt embeddings using indices
         prompt_embeds = self.prompt_encoder(indices)
 
-        # Ensure prompt_embeds has the correct shape
         if len(prompt_embeds.shape) == 4:  # (1, batch_size, num_virtual_tokens, token_dim)
             prompt_embeds = prompt_embeds.squeeze(0)  # (batch_size, num_virtual_tokens, token_dim)
 

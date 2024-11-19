@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "audio_file": "O-Christmas-Tree.mp3",
+            "duration": 163,
+            "genre": "Jazz",
+            "description": "A calm and relaxing jazz rendition of the Christmas carol with piano and saxophone",
+            "keywords": ["warm", "winter", "slow", "christmas", "saxophone"],
+            "moods": ["warm", "calm", "cozy"],
+            "sample_rate": 48000,
+            "file_extension" : "mp3"
+        }
+    ]
+}

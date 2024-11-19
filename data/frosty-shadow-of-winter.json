@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "audio_file": "frosty-shadow-of-winter.mp3",
+            "duration": 147,
+            "genre": "lofi",
+            "description": "dreamy and relaxing lofi beat with simple melody, warm vibes.",
+            "keywords": ["slow","lofi","warm"],
+            "moods": ["calm", "dreamy","relaxing"],
+            "sample_rate": 48000,
+            "file_extension" : "mp3"
+        }
+    ]
+}
