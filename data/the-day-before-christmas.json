@@ -1,14 +1,10 @@
 {
-    "data": [
-        {
-            "audio_file": "the-day-before-christmas.mp3",
-            "duration": 186,
-            "genre": "lofi",
-            "description": "A vintage lo-fi beat with a warm, Christmas feel.",
-            "keywords": ["christmas", "lo-fi", "warm", "winter", "night"],
-            "moods": ["warm", "vintage", "cozy"],
-            "sample_rate": 48000,
-            "file_extension" : "mp3"
-        }
-    ]
+    "audio_file": "the-day-before-christmas.mp3",
+    "duration": 186,
+    "genre": "lofi",
+    "description": "A vintage lo-fi beat with a warm, Christmas feel.",
+    "keywords": ["christmas", "lo-fi", "warm", "winter", "night"],
+    "moods": ["warm", "vintage", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"
 }

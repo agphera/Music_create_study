@@ -1,14 +1,10 @@
 {
-    "data": [
-        {
-            "audio_file": "Oh-Little-Town-of-Bethlehem.mp3",
-            "duration": 142,
-            "genre": "Jazz",
-            "description": "cozy and happy vibes of christmas jazz carol with piano and saxophone",
-            "keywords": [ "carol", "slow", "christmas", "saxophone"],
-            "moods": ["warm", "calm", "cozy","happy"],
-            "sample_rate": 48000,
-            "file_extension" : "mp3"
-        }
-    ]
+    "audio_file": "Oh-Little-Town-of-Bethlehem.mp3",
+    "duration": 142,
+    "genre": "Jazz",
+    "description": "cozy and happy vibes of christmas jazz carol with piano and saxophone",
+    "keywords": [ "carol", "slow", "christmas", "saxophone"],
+    "moods": ["warm", "calm", "cozy","happy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"
 }

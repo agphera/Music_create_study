@@ -1,14 +1,10 @@
 {
-    "data": [
-        {
-            "audio_file": "Joy-to-the-World.mp3",
-            "duration": 132,
-            "genre": "Jazz",
-            "description": " calm and relaxing Christmas jazz carol with piano and saxophone",
-            "keywords": ["warm", "winter", "slow", "christmas", "saxophone"],
-            "moods": ["warm", "calm", "cozy"],
-            "sample_rate": 48000,
-            "file_extension" : "mp3"
-        }
-    ]
+    "audio_file": "Joy-to-the-World.mp3",
+    "duration": 132,
+    "genre": "Jazz",
+    "description": " calm and relaxing Christmas jazz carol with piano and saxophone",
+    "keywords": ["warm", "winter", "slow", "christmas", "saxophone"],
+    "moods": ["warm", "calm", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"
 }

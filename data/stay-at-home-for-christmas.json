@@ -1,14 +1,10 @@
 {
-    "data": [
-        {
-            "audio_file": "stay-at-home-for-christmas.mp3",
-            "duration": 154,
-            "genre": "lofi",
-            "description": "slow and steady lofi beat with calm melody feels like winter",
-            "keywords": ["winter", "slow", "christmas", "lofi"],
-            "moods": ["calm"],
-            "sample_rate": 48000,
-            "file_extension" : "mp3"
-        }
-    ]
+    "audio_file": "stay-at-home-for-christmas.mp3",
+    "duration": 154,
+    "genre": "lofi",
+    "description": "slow and steady lofi beat with calm melody feels like winter",
+    "keywords": ["winter", "slow", "christmas", "lofi"],
+    "moods": ["calm"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"
 }

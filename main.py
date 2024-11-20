@@ -3,9 +3,9 @@ from audiocraft.models import MusicGen
 from transformers import AutoTokenizer
 
 # Import custom modules
-from models.peft_provider import PEFTPConditionProvider
-from utils.dataset import JSONAudioDataset
-from models.train_peft import train_model
+from src.models.peft_provider import PEFTPConditionProvider
+from src.utils.dataset import JSONAudioDataset
+from src.models.train_peft import train_model
 from generate import generate_music
 
 import torch
@@ -17,7 +17,8 @@ import os
 #JSON_PATH = "data/Silent-Night.json"
 #JSON_PATH = "data"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_PATH = os.path.join(BASE_DIR, "data", "Silent-Night.json")
+JSON_PATH = os.listdir(os.path.join(BASE_DIR,"data"))
+print(JSON_PATH)
 CHECKPOINT_DIR = "checkpoints"
 EPOCHS = 10
 BATCH_SIZE = 16
