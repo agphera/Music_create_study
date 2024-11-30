@@ -1,0 +1,15 @@
+{"time":"2024-11-29T00:27:17.4624759+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-29T00:27:17.46302+09:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\dana\\Desktop\\Music_study\\wandb\\offline-run-20241129_002717-xffpfsgp\\logs\\debug-core.log"}
+{"time":"2024-11-29T00:27:17.5806335+09:00","level":"INFO","msg":"created new stream","id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:17.5806335+09:00","level":"INFO","msg":"stream: started","id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:17.5813132+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:17.5813132+09:00","level":"INFO","msg":"handler: started","stream_id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:17.5813132+09:00","level":"INFO","msg":"sender: started","stream_id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:17.6046093+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-29T00:27:18.354746+09:00","level":"INFO","msg":"stream: closing","id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:18.354746+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-29T00:27:18.35553+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-29T00:27:18.35553+09:00","level":"INFO","msg":"handler: closed","stream_id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:18.35553+09:00","level":"INFO","msg":"sender: closed","stream_id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:18.35553+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"xffpfsgp"}
+{"time":"2024-11-29T00:27:18.3566003+09:00","level":"INFO","msg":"stream: closed","id":"xffpfsgp"}

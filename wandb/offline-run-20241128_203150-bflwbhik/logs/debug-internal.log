@@ -1,0 +1,15 @@
+{"time":"2024-11-28T20:31:50.3089349+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-28T20:31:50.3089349+09:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\dana\\Desktop\\Music_study\\wandb\\offline-run-20241128_203150-bflwbhik\\logs\\debug-core.log"}
+{"time":"2024-11-28T20:31:50.4285875+09:00","level":"INFO","msg":"created new stream","id":"bflwbhik"}
+{"time":"2024-11-28T20:31:50.4285875+09:00","level":"INFO","msg":"stream: started","id":"bflwbhik"}
+{"time":"2024-11-28T20:31:50.4290251+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"bflwbhik"}
+{"time":"2024-11-28T20:31:50.4290251+09:00","level":"INFO","msg":"sender: started","stream_id":"bflwbhik"}
+{"time":"2024-11-28T20:31:50.4290251+09:00","level":"INFO","msg":"handler: started","stream_id":"bflwbhik"}
+{"time":"2024-11-28T20:31:50.4606714+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-28T20:31:51.0731239+09:00","level":"INFO","msg":"stream: closing","id":"bflwbhik"}
+{"time":"2024-11-28T20:31:51.0731239+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-28T20:31:51.0760583+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-28T20:31:51.076375+09:00","level":"INFO","msg":"handler: closed","stream_id":"bflwbhik"}
+{"time":"2024-11-28T20:31:51.076375+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bflwbhik"}
+{"time":"2024-11-28T20:31:51.076375+09:00","level":"INFO","msg":"sender: closed","stream_id":"bflwbhik"}
+{"time":"2024-11-28T20:31:51.0768856+09:00","level":"INFO","msg":"stream: closed","id":"bflwbhik"}

@@ -1,0 +1,31 @@
+{
+  "os":  "Windows-10-10.0.22631-SP0",
+  "python":  "3.11.10",
+  "startedAt":  "2024-11-28T13:38:12.114233Z",
+  "program":  "C:\\Users\\dana\\Desktop\\Music_study\\main3.py",
+  "codePath":  "main3.py",
+  "git":  {
+    "remote":  "https://github.com/agphera/Music_create_study.git",
+    "commit":  "0961f0a1b40403a6a7721839bbf2833166c7e41c"
+  },
+  "root":  "C:\\Users\\dana\\Desktop\\Music_study",
+  "host":  "BOOK-43LKS6NDUN",
+  "username":  "dana",
+  "executable":  "C:\\Users\\dana\\anaconda3\\envs\\musicgen2\\python.exe",
+  "codePathLocal":  "main3.py",
+  "cpu_count":  12,
+  "cpu_count_logical":  16,
+  "disk":  {
+    "/":  {
+      "total":  "379318169600",
+      "used":  "328999575552"
+    }
+  },
+  "memory":  {
+    "total":  "16788533248"
+  },
+  "cpu":  {
+    "count":  12,
+    "countLogical":  16
+  }
+}

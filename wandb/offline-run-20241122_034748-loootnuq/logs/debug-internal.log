@@ -1,0 +1,15 @@
+{"time":"2024-11-22T03:47:48.1394284+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-22T03:47:48.1394284+09:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\dana\\Desktop\\Music_study\\wandb\\offline-run-20241122_034748-loootnuq\\logs\\debug-core.log"}
+{"time":"2024-11-22T03:47:48.249243+09:00","level":"INFO","msg":"created new stream","id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.249243+09:00","level":"INFO","msg":"stream: started","id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.249243+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.249243+09:00","level":"INFO","msg":"handler: started","stream_id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.249243+09:00","level":"INFO","msg":"sender: started","stream_id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.2633002+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-22T03:47:48.5077973+09:00","level":"INFO","msg":"stream: closing","id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.5077973+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-22T03:47:48.5083232+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-22T03:47:48.5083232+09:00","level":"INFO","msg":"handler: closed","stream_id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.5083232+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.5083232+09:00","level":"INFO","msg":"sender: closed","stream_id":"loootnuq"}
+{"time":"2024-11-22T03:47:48.5092157+09:00","level":"INFO","msg":"stream: closed","id":"loootnuq"}

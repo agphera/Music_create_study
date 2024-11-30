@@ -1,0 +1,15 @@
+{"time":"2024-11-22T03:56:28.0989577+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-22T03:56:28.0989577+09:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\dana\\Desktop\\Music_study\\wandb\\offline-run-20241122_035628-57gp7ajs\\logs\\debug-core.log"}
+{"time":"2024-11-22T03:56:28.2081113+09:00","level":"INFO","msg":"created new stream","id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.2081113+09:00","level":"INFO","msg":"stream: started","id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.2081113+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.2081113+09:00","level":"INFO","msg":"sender: started","stream_id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.2081113+09:00","level":"INFO","msg":"handler: started","stream_id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.2207878+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-22T03:56:28.481528+09:00","level":"INFO","msg":"stream: closing","id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.481528+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-22T03:56:28.481528+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-22T03:56:28.481528+09:00","level":"INFO","msg":"handler: closed","stream_id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.481528+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.4821529+09:00","level":"INFO","msg":"sender: closed","stream_id":"57gp7ajs"}
+{"time":"2024-11-22T03:56:28.4823273+09:00","level":"INFO","msg":"stream: closed","id":"57gp7ajs"}

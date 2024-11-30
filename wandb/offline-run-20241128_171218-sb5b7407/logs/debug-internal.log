@@ -1,0 +1,15 @@
+{"time":"2024-11-28T17:12:18.8447838+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-28T17:12:18.8447838+09:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\dana\\Desktop\\Music_study\\wandb\\offline-run-20241128_171218-sb5b7407\\logs\\debug-core.log"}
+{"time":"2024-11-28T17:12:19.3537091+09:00","level":"INFO","msg":"created new stream","id":"sb5b7407"}
+{"time":"2024-11-28T17:12:19.3537091+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"sb5b7407"}
+{"time":"2024-11-28T17:12:19.3537091+09:00","level":"INFO","msg":"stream: started","id":"sb5b7407"}
+{"time":"2024-11-28T17:12:19.3537091+09:00","level":"INFO","msg":"handler: started","stream_id":"sb5b7407"}
+{"time":"2024-11-28T17:12:19.3537091+09:00","level":"INFO","msg":"sender: started","stream_id":"sb5b7407"}
+{"time":"2024-11-28T17:12:19.3537091+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-28T17:12:21.1023535+09:00","level":"INFO","msg":"stream: closing","id":"sb5b7407"}
+{"time":"2024-11-28T17:12:21.1023535+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-28T17:12:21.1084229+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-28T17:12:21.1084229+09:00","level":"INFO","msg":"handler: closed","stream_id":"sb5b7407"}
+{"time":"2024-11-28T17:12:21.1084229+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"sb5b7407"}
+{"time":"2024-11-28T17:12:21.1084229+09:00","level":"INFO","msg":"sender: closed","stream_id":"sb5b7407"}
+{"time":"2024-11-28T17:12:21.1133316+09:00","level":"INFO","msg":"stream: closed","id":"sb5b7407"}

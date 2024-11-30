@@ -1,0 +1,15 @@
+{"time":"2024-11-28T22:16:57.6190042+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-28T22:16:57.6190042+09:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\dana\\Desktop\\Music_study\\wandb\\offline-run-20241128_221657-7t0wn4ly\\logs\\debug-core.log"}
+{"time":"2024-11-28T22:16:57.7284819+09:00","level":"INFO","msg":"created new stream","id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:57.7284819+09:00","level":"INFO","msg":"stream: started","id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:57.7284819+09:00","level":"INFO","msg":"handler: started","stream_id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:57.7294069+09:00","level":"INFO","msg":"sender: started","stream_id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:57.7294069+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:57.7438372+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-28T22:16:58.0412754+09:00","level":"INFO","msg":"stream: closing","id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:58.0412754+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-28T22:16:58.0432821+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-28T22:16:58.0432821+09:00","level":"INFO","msg":"handler: closed","stream_id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:58.0437853+09:00","level":"INFO","msg":"sender: closed","stream_id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:58.0437853+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"7t0wn4ly"}
+{"time":"2024-11-28T22:16:58.0440114+09:00","level":"INFO","msg":"stream: closed","id":"7t0wn4ly"}
