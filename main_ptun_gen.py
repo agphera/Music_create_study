@@ -32,4 +32,4 @@ generated_audio = outputs[0]
 sample_rate = 32000
 torchaudio.save("ptuned_gen.wav", generated_audio, sample_rate)
 
-print("Music generation complete. Saved as 'generated_music.wav'")
+print("Music generation complete. Saved as 'ptuned_gen.wav'")

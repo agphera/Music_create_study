@@ -20,28 +20,31 @@ hidden_size = 768 #t5모델의 hidden_size=768. 이에 따라 설정
 # Prompt Encoder 초기화
 prompt_length = 10
 hidden_size = 768
-intermediate_size = 1024  # MLP 중간 크기
+intermediate_size = 1024  # ptunig: MLP 중간 크기
 
 
 #모델과 토크나이저 설정
 musicgen_model = MusicgenForConditionalGeneration.from_pretrained(model_name)
 tokenizer = T5Tokenizer.from_pretrained(tokenizer_name)
-#
+#디코더 시작 토큰 설정(Musicgen의 필수 설정임)
 musicgen_model.config.decoder.decoder_start_token_id = 0
 
 #가중치 고정 (텍스트 인코더, 디코더, 오디오 인코더)
 for param in musicgen_model.text_encoder.parameters():
-    param.requires_grad = False #인코더를 학습시키는게 아니라, 프롬프트 벡터만 학습시켜서 삽입하는 것임.
+    param.requires_grad = False #인코더를 학습시키는게 아니라, 프롬프트 벡터를 학습시키는 거임. 
 for param in musicgen_model.decoder.parameters():
     param.requires_grad = False
 for param in musicgen_model.audio_encoder.parameters():
     param.requires_grad = False
 
-#추가할 프롬프트 벡터 선언
+#추가할(학습 가능한) 프롬프트 벡터 선언
 prompt_vector = nn.Parameter(torch.randn(1, prompt_length, hidden_size), requires_grad=True)
 
 # P-Tuning을 위한 추가적인 레이어 (MLP 기반)
 class PromptEncoder(nn.Module):
+    """
+    프롬프트 벡터를 학습 가능한 파라미터로 정의하고, MLP로 변환하여 모델에 통합
+    """
     def __init__(self, prompt_length, hidden_size, intermediate_size):
         super().__init__()
         self.embedding = nn.Parameter(torch.randn(1, prompt_length, hidden_size), requires_grad=True)
@@ -52,10 +55,14 @@ class PromptEncoder(nn.Module):
         )
 
     def forward(self, batch_size):
+        """
+        학습 가능한 프롬프트 벡터를 배치 크기에 맞게 확장하고, MLP를 통해 변환
+        """
         prompt = self.embedding.expand(batch_size, -1, -1)  # (batch_size, prompt_length, hidden_size)
-        prompt = self.mlp(prompt)
+        prompt = self.mlp(prompt) #mlp로 변환.
         return prompt
 
+#프롬프트 인코더 초기화
 prompt_encoder = PromptEncoder(prompt_length, hidden_size, intermediate_size)  # cpu
 
 #입력 텍스트에 프롬프트 공간 추가
@@ -89,8 +96,8 @@ def generate_audio_labels(audio_inputs, sample_rates, target_sample_rate=32000, 
     if audio_input.size(1) == 2:
         audio_input = audio_input.mean(dim=1, keepdim=True)
 
-    audio_codes_list = []
     #오디오 코드 생성
+    audio_codes_list = []
     for i in range(0, audio_input.size(0), 1):
         batch = audio_input[i:i + 1]
         with torch.no_grad():
@@ -106,6 +113,8 @@ def create_musicgen_dataset(data_dir, dataset_dir):
     input_texts = []
     audio_inputs = []
     sample_rates = []
+
+    #json - mp3 파일 쌍 읽기
     file_pairs = [
         (os.path.join(data_dir, f), os.path.join(data_dir, f.replace('.json', '.mp3')))
         for f in os.listdir(data_dir) if f.endswith('.json')
@@ -119,6 +128,7 @@ def create_musicgen_dataset(data_dir, dataset_dir):
         audio_inputs.append(waveform) #mp3 파일로부터 오디오 데이터를 로드
         sample_rates.append(original_sample_rate)
 
+    #텍스트 및 오디오 데이터 전처리
     inputs_ids = create_inputs_with_prompt(input_texts) #입력 텍스트에 프롬프트 공간 추가한 것
     labels = generate_audio_labels(audio_inputs, sample_rates) #오디오 코드북(=라벨) 생성
     inputs_ids_list.extend(inputs_ids.numpy())
@@ -131,6 +141,9 @@ def create_musicgen_dataset(data_dir, dataset_dir):
 
 
 def forward_hook(module, input):
+    """
+    텍스트 입력의 앞부분에 학습된 프롬프트를 삽입하는 Hook
+    """
     original_input = input[0]
     batch_size = original_input.size(0)
     
@@ -142,7 +155,7 @@ def forward_hook(module, input):
     return (original_input,)
 
 
-
+#모델 학습
 def train_model(dataset_path, output_dir='./musicgen_results', learning_rate=5e-5, batch_size=3, num_epochs=3):
     dataset_dict = load_from_disk(dataset_path)
     train_dataset = dataset_dict['train']
