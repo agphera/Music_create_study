@@ -1,4 +1,7 @@
-models/__pycache__/
 __pycache__/
 ptuning/
-wandb/
+data/
+test/
+try/
+first_time/
+clap.py

@@ -12,7 +12,7 @@ tokenizer = T5Tokenizer.from_pretrained(tokenizer_name)
 model.eval()
 
 # 입력 텍스트
-input_text = "calm and cozy christmas jazz with piano and lofi style"
+input_text = "relaxing and slow lofi beats with christmas jazz melody"
 
 # 텍스트 토큰화
 inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
@@ -30,6 +30,6 @@ with torch.no_grad():
 # 오디오 코드를 파일로 저장
 generated_audio = outputs[0]
 sample_rate = 32000
-torchaudio.save("ptuned_gen.wav", generated_audio, sample_rate)
+torchaudio.save("ptuned_mlp3.wav", generated_audio, sample_rate)
 
-print("Music generation complete. Saved as 'ptuned_gen.wav'")
+print("Music generation complete. Saved as 'ptuned_mlp3.wav'")

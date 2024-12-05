@@ -1,57 +1,52 @@
-from transformers import AutoProcessor, ClapModel
-import torchaudio
+import numpy as np
+import librosa
 import torch
-import torchaudio.transforms as transforms
+import laion_clap
 
-# 디바이스 설정
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Using device: {device}")
 
-# CLAP 모델과 프로세서 로드
-processor = AutoProcessor.from_pretrained("laion/clap-htsat-fused")
-model = ClapModel.from_pretrained("laion/clap-htsat-fused")
-model.to(device)
-model.eval()
+# quantization
+def int16_to_float32(x):
+    return (x / 32767.0).astype(np.float32)
 
-# 오디오 데이터를 리샘플링하는 함수
-def resample_audio(waveform, original_sample_rate, target_sample_rate=48000):
-    if original_sample_rate != target_sample_rate:
-        resampler = transforms.Resample(orig_freq=original_sample_rate, new_freq=target_sample_rate)
-        waveform = resampler(waveform)
-    return waveform
 
-# 오디오 데이터를 자르는 함수
-def truncate_waveform(waveform, sample_rate, max_duration=10):
-    max_samples = int(sample_rate * max_duration)  # 최대 샘플 수
-    return waveform[:, :max_samples]  # 초과 데이터 제거
+def float32_to_int16(x):
+    x = np.clip(x, a_min=-1., a_max=1.)
+    return (x * 32767.).astype(np.int16)
 
-# 유사도 계산 함수 정의
-def compute_similarity(text, audio_path, max_duration=10):
-    # 텍스트 임베딩 생성
-    text_inputs = processor(text=[text], return_tensors="pt", padding=True, truncation=True).to(device)
-    with torch.no_grad():
-        text_features = model.get_text_features(**text_inputs)
+# 코사인 유사도 계산 함수
+def cosine_similarity(tensor1, tensor2):
+    tensor1 = tensor1 / tensor1.norm(dim=-1, keepdim=True)
+    tensor2 = tensor2 / tensor2.norm(dim=-1, keepdim=True)
+    return torch.matmul(tensor1, tensor2.T)
 
-    # 오디오 데이터 로드
-    waveform, sample_rate = torchaudio.load(audio_path)
+# CLAP 모델 로드
+model = laion_clap.CLAP_Module(enable_fusion=False)
+model.load_ckpt()
 
-    # 리샘플링 및 트리밍
-    waveform = resample_audio(waveform, sample_rate, target_sample_rate=48000)
-    waveform = truncate_waveform(waveform, sample_rate=48000, max_duration=max_duration)
+# 오디오 및 텍스트 데이터
+audio_file = [
 
-    # 오디오 임베딩 생성
-    audio_inputs = processor(audios=waveform, sampling_rate=48000, return_tensors="pt").to(device)
-    with torch.no_grad():
-        audio_features = model.get_audio_features(**audio_inputs)
+    #'/Users/dana/Desktop/Music_study/ptuned_mlp1.wav' #0.4515
+    #'/Users/dana/Desktop/Music_study/origin_1.wav' #0.3916
 
-    # 코사인 유사도 계산
-    similarity = torch.nn.functional.cosine_similarity(text_features, audio_features)
-    return similarity.item()
+    #"A warm lo-fi track with gentle beats and winter jazz style"
+    #'/Users/dana/Desktop/Music_study/origin_2.wav' #0.4166
+    #'/Users/dana/Desktop/Music_study/ptuned_mlp2_1.wav' #0.4323
 
-# 평가할 텍스트와 오디오 파일 경로
-text_prompt = "calm and cozy christmas jazz with piano and lofi style"
-generated_audio_path = "ptuned_gen.wav"  # 생성된 오디오 파일 경로
+]
 
-# 유사도 계산 및 출력
-similarity_score = compute_similarity(text_prompt, generated_audio_path, max_duration=10)
-print(f"Similarity between generated audio and text: {similarity_score}")
+#text_data=["cozy and dreamy christmas jazz music"]
+text_data = ["A warm lo-fi track with gentle beats and winter jazz style"]
+
+# 오디오 임베딩 생성
+audio_embed = model.get_audio_embedding_from_filelist(x=audio_file, use_tensor=True)
+print(f"Audio Embeddings: {audio_embed.shape}")
+
+# 텍스트 임베딩 생성
+text_embed = model.get_text_embedding(text_data, use_tensor=True)
+print(f"Text Embeddings: {text_embed.shape}")
+
+# CLAP 점수 계산
+clap_scores = cosine_similarity(audio_embed, text_embed)
+print("CLAP Scores (Audio vs. Text):")
+print(clap_scores)
