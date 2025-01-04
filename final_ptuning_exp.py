@@ -103,20 +103,32 @@ def create_musicgen_dataset(data_dir, dataset_dir):
     input_texts = []
     audio_inputs = []
     sample_rates = []
-    file_pairs = [
-        (os.path.join(data_dir, f), os.path.join(data_dir, f.replace(".json", ".mp3")))
-        for f in os.listdir(data_dir)
-        if f.endswith(".json")
-    ]
+    #file_pairs = [
+    #    (os.path.join(data_dir, f), os.path.join(data_dir, f.replace(".json", ".mp3")))
+    #    for f in os.listdir(data_dir)
+    #    if f.endswith(".json")
+    #]
+    file_pairs = []
+    for f in os.listdir(data_dir):
+        if f.endswith(".json"):
+            json_path = os.path.join(data_dir, f)
+            mp3_path = os.path.join(data_dir, f.replace(".json", ".mp3"))
+            wav_path = os.path.join(data_dir, f.replace(".json", ".wav"))
+            
+            if os.path.exists(mp3_path):
+                file_pairs.append((json_path, mp3_path))
+            if os.path.exists(wav_path):
+                file_pairs.append((json_path, wav_path))
+    #
     for json_path, audio_path in file_pairs:
         with open(json_path, "r") as json_file:
             data = json.load(json_file)
-            genre = data.get("genre", "")
             description = data.get("description", "")
-            keywords = ", ".join(data.get("keywords", []))
-            moods = ", ".join(data.get("moods", []))
-            full_text = f"Genre: {genre}. Description: {description}. Keywords: {keywords}. Moods: {moods}."
-            input_texts.append(full_text)
+            #genre = data.get("genre", "")
+            #keywords = ", ".join(data.get("keywords", []))
+            #moods = ", ".join(data.get("moods", []))
+            #full_text = f"Genre: {genre}. Description: {description}. Keywords: {keywords}. Moods: {moods}."
+            input_texts.append(description)
 
         waveform, original_sample_rate = torchaudio.load(audio_path)
         audio_inputs.append(waveform)
@@ -125,12 +137,15 @@ def create_musicgen_dataset(data_dir, dataset_dir):
     inputs_ids = create_inputs_with_prompt(input_texts) #입력 텍스트에 프롬프트 공간 추가한 것
     labels = generate_audio_labels(audio_inputs, sample_rates) #오디오 코드북(=라벨) 생성
 
+    #데이터셋 분할
     train_texts, eval_texts, train_labels, eval_labels = train_test_split(
         inputs_ids.numpy(), labels.numpy(), test_size=0.2, random_state=42
     )
     train_dataset = Dataset.from_dict({"input_ids": train_texts, "labels": train_labels})
     eval_dataset = Dataset.from_dict({"input_ids": eval_texts, "labels": eval_labels})
     dataset_dict = DatasetDict({"train": train_dataset, "eval": eval_dataset})
+    
+    #데이터셋 저장
     dataset_dict.save_to_disk(dataset_dir)
 
 #모델의 forward 함수 호출 시, 프롬프트 벡터를 입력 텍스트 앞에 삽입
@@ -186,6 +201,6 @@ create_musicgen_dataset(data_path, dataset_path)
 train_model(
     dataset_path, 
     output_dir="./ptuning", 
-    learning_rate=5e-5, 
+    learning_rate=1e-5, #5e-5
     batch_size=1, 
     num_epochs=10)
