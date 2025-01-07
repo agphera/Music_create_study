@@ -5,28 +5,39 @@ import laion_clap
 model = laion_clap.CLAP_Module(enable_fusion=False)
 model.load_ckpt()
 
-# 오디오 파일 리스트
-audio_files = [
-    f"original_model_music_{i + 1}.wav" for i in range(5)
-] + [
-    f"new_generated_music_{i + 1}.wav" for i in range(5)
+# 오디오 파일 리스트 (21번부터 30번까지)
+original_files = [
+    f"original_model_music_{i}.wav" for i in range(21, 31)
+]
+new_generated_files = [
+    f"new_generated_music_{i}.wav" for i in range(21, 31)
 ]
 
 # 동일한 텍스트 프롬프트
 text_prompts = [
-    "A calm and peaceful lo-fi jazz music with gentle Christmas vibes, featuring soft piano and soothing rhythms.",
-    "Warm and cozy Christmas lo-fi music with subtle jingle bells, evoking a positive mood and relaxing holiday night",
-    "Bright lo-fi jazz music with a wintery touch, featuring smooth melodies.",
-    "A quiet and serene lo-fi track perfect for a peaceful winter night, with slow tempos and smooth ambient tones.",
-    "Dreamy and smooth lo-fi Christmas music, with warm tones and subtle background chimes for a relaxed mood."
+    "A dreamy lo-fi jazz melody blending soft piano, smooth saxophone, and warm guitar riffs, evoking the cozy ambiance of a snowy winter night with subtle jingle bells in the background.",
+    "A tranquil lo-fi track with layered ambient tones, featuring a calm winter vibe with steady drum beats, relaxing chime effects, and gentle Christmas melodies.",
+    "A warm and nostalgic lo-fi jazz composition with soft piano chords, serene saxophone solos, and light electronic textures, capturing the essence of peaceful Christmas evenings by the fireplace.",
+    "An uplifting lo-fi beat enriched with vibrant saxophone melodies, layered guitar harmonics, and soothing ambient tones, perfect for a joyful yet serene Christmas morning.",
+    "A vintage-inspired lo-fi track with slow tempos and mellow drum patterns, blending nostalgic piano tones, smooth jazz elements, and subtle sleigh bells to evoke warm winter memories.",
+    "A soothing lo-fi jazz melody featuring soft guitar riffs, layered chime effects, and tranquil piano notes, evoking a peaceful and reflective mood for a starlit Christmas Eve.",
+    "A positive lo-fi track with layered textures of warm saxophone, dreamy piano melodies, and steady drum beats, capturing the joyful essence of a snowy winter landscape under the moonlight.",
+    "A serene lo-fi composition combining light ambient wind chimes, nostalgic piano harmonies, and gentle percussion, creating the perfect mood for a relaxing winter evening.",
+    "An intricate lo-fi jazz arrangement with overlapping melodies of soft saxophone, gentle guitar riffs, and subtle electronic sounds, evoking a calm yet vibrant Christmas atmosphere.",
+    "A mellow lo-fi tune enriched with tranquil piano chords, warm ambient textures, and faint jingle bell chimes, designed to bring comfort and peace during a quiet winter night."
 ]
 
 # 텍스트 임베딩 생성
 text_embed = model.get_text_embedding(text_prompts, use_tensor=True)
 
 # CLAP 점수 계산 및 출력
-for i, audio_file in enumerate(audio_files):
-    audio_embed = model.get_audio_embedding_from_filelist([audio_file], use_tensor=True)
-    clap_score = torch.matmul(audio_embed, text_embed[i % 5].unsqueeze(0).T).item()
-    model_type = "Original" if i < 5 else "P-Tuning"
-    print(f"CLAP Score for {model_type} Model - Audio {i % 5 + 1}: {clap_score}")
+for i, audio_number in enumerate(range(21, 31)):
+    original_audio_embed = model.get_audio_embedding_from_filelist([original_files[i]], use_tensor=True)
+    new_generated_audio_embed = model.get_audio_embedding_from_filelist([new_generated_files[i]], use_tensor=True)
+
+    # 각각의 텍스트 프롬프트에 대해 점수 계산
+    original_clap_score = torch.matmul(original_audio_embed, text_embed[i].unsqueeze(0).T).item()
+    new_generated_clap_score = torch.matmul(new_generated_audio_embed, text_embed[i].unsqueeze(0).T).item()
+
+    print(f"CLAP Score for Original Model - Audio {audio_number}: {original_clap_score}")
+    print(f"CLAP Score for P-Tuning Model - Audio {audio_number}: {new_generated_clap_score}")
