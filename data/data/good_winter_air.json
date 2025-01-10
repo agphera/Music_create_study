@@ -1,0 +1,9 @@
+{
+    "audio_file": "good_winter_air.wav",
+    "genre": "Lofi",
+    "description": "A lofi track with calm winter vibe",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "wav"    
+}

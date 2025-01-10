@@ -1,0 +1,9 @@
+{
+    "audio_file": "deck_the_halls.wav",
+    "genre": "Lofi",
+    "description": "relaxing lofi music for a peaceful winter mood",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "wav"    
+}

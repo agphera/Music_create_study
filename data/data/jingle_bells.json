@@ -1,0 +1,9 @@
+{
+    "audio_file": "jingle_bells.mp3",
+    "genre": "Lofi",
+    "description": " Christmas lofi jazz music with a peaceful and cozy feeling.",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

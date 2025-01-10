@@ -1,0 +1,9 @@
+{
+    "audio_file": "black-box-christmas-jingle-bell.mp3",
+    "genre": "Lofi",
+    "description": "christmas lofi music with calm and positive mood with electronic sounds",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

@@ -1,0 +1,10 @@
+{
+    "audio_file": "sunset_street.mp3",
+    "duration": 154,
+    "genre": "lofi",
+    "description": "Warm and tranquil lofi music with a positive and peaceful vibe",
+    "keywords": ["winter", "slow", "christmas", "lofi"],
+    "moods": ["calm"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"
+}

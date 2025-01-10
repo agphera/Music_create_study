@@ -1,0 +1,9 @@
+{
+    "audio_file": "jazzy.mp3",
+    "genre": "Lofi",
+    "description": "Cozy lofi music mainly blended with smooth jazz elements",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

@@ -1,0 +1,9 @@
+{
+    "audio_file": "snow_day.mp3",
+    "genre": "Lofi",
+    "description": "A warm and gentle lofi track with a quiet winter vibe",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

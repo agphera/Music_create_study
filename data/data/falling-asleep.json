@@ -1,0 +1,9 @@
+{
+    "audio_file": "falling-asleep.mp3",
+    "genre": "Lofi",
+    "description": "A slow-tempo lofi track with a calm and relaxing vibe",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

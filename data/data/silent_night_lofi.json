@@ -1,0 +1,9 @@
+{
+    "audio_file": "silent_night_lofi.mp3",
+    "genre": "Lofi",
+    "description": " Relaxing Christmas lofi jazz music with a calm atmosphere and light jingle bell chimes",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

@@ -1,0 +1,9 @@
+{
+    "audio_file": "happy-story.mp3",
+    "genre": "Lofi",
+    "description": "Quiet and calm lofi music with a relaxing vibe",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

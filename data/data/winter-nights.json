@@ -1,0 +1,9 @@
+{
+    "audio_file": "winter-nights.mp3",
+    "genre": "Lofi",
+    "description": "A calm and slow-tempo lofi track perfect for a quiet night",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

@@ -1,0 +1,9 @@
+{
+    "audio_file": "smooth.mp3",
+    "genre": "Lofi",
+    "description": "Relaxing lofi music with a smooth and soothing vibe for peaceful nights",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

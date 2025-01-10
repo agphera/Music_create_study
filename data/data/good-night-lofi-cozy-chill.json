@@ -1,0 +1,9 @@
+{
+    "audio_file": "good-night-lofi-cozy-chill.mp3",
+    "genre": "Lofi",
+    "description": "A peaceful and soothing lofi music for relaxation",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}

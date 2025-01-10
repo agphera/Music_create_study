@@ -1,0 +1,9 @@
+{
+    "audio_file": "faithful.mp3",
+    "genre": "Lofi",
+    "description": "A holy Christmas lofi track with subtle jingle bell sounds",
+    "keywords": ["warm", "winter", "slow", "christmas"],
+    "moods": ["warm", "happy", "cozy"],
+    "sample_rate": 48000,
+    "file_extension" : "mp3"    
+}
