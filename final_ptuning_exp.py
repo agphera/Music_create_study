@@ -7,7 +7,7 @@ from transformers import (
     MusicgenForConditionalGeneration,  # Musicgen 조건부 생성 모델
     TrainingArguments,  # 모델 학습 시 필요 설정 정의
     Trainer,  # 설정을 바탕으로 학습 루프 진행
-    #EarlyStoppingCallback,  # Early Stopping을 위한 콜백
+    EarlyStoppingCallback,  # Early Stopping을 위한 콜백
 )
 from datasets import Dataset, DatasetDict, load_from_disk
 import os
@@ -187,7 +187,7 @@ def train_model(dataset_path, output_dir="./musicgen_results", learning_rate=5e-
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
         optimizers=(optimizer, None),
-        #callbacks=[EarlyStoppingCallback(early_stopping_patience=4)],
+        #callbacks=[EarlyStoppingCallback(early_stopping_patience=6)],
     )
     trainer.train()
     musicgen_model.save_pretrained(output_dir)
@@ -201,6 +201,6 @@ create_musicgen_dataset(data_path, dataset_path)
 train_model(
     dataset_path, 
     output_dir="./ptuning", 
-    learning_rate= 5e-6,#1e-5, #5e-5
+    learning_rate= 5e-5,#1e-5, #1e-6,#5e-6,#1e-5, #5e-5
     batch_size=1, 
-    num_epochs=20)
+    num_epochs=10)
