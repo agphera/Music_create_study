@@ -45,7 +45,7 @@ text_prompts = [
 #"A drum and bass track with fast breakbeats, smooth sub-bass, and jazzy chord progressions for a sophisticated edge.",
 #"A hybrid EDM track combining orchestral elements with energetic electronic drops, perfect for dramatic moments.",
 #"A groove-heavy tech house track with punchy drums, rolling basslines, and minimal synth stabs for a club-ready vibe."
-     #"Dreamy and cozy Christmas jazz lofi track with a relaxing piano melody.",
+    #"Dreamy and cozy Christmas jazz lofi track with a relaxing piano melody.",
     #"A calm and peaceful Christmas lofi track with warm vibes and subtle saxophone sounds.",
     ##"Slow-tempo lofi music with a cozy winter feeling and soft jingle bells.",
     #"A relaxing jazz lofi track with a positive Christmas mood and piano melody.",
