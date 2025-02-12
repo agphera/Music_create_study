@@ -1,11 +1,10 @@
 import torch
 import laion_clap
 
-# CLAP 모델 로드
+# Load CLAP model
 model = laion_clap.CLAP_Module(enable_fusion=False)
 model.load_ckpt()
 
-# 오디오 파일 리스트 (1번부터 10번까지)
 original_files = [
     f"original_model_music_{i}.wav" for i in range(1, 11)
 ]
@@ -13,7 +12,6 @@ new_generated_files = [
     f"new_generated_music_{i}.wav" for i in range(1, 11)
 ]
 
-# 텍스트 프롬프트 리스트 (1번부터 10번까지)
 text_prompts = [
     "An energetic EDM track with a fast tempo and powerful bass drops.",
     "A high-energy dance music track featuring rhythmic claps and soaring synths.",
@@ -27,15 +25,14 @@ text_prompts = [
     "A melodic techno track with hypnotic arpeggios and deep basslines."
 ]
 
-# 텍스트 임베딩 생성
+# generate text embeddings
 text_embed = model.get_text_embedding(text_prompts, use_tensor=True)
 
-# CLAP 점수 계산 및 출력
+# print CLAP score
 for i in range(10):
     original_audio_embed = model.get_audio_embedding_from_filelist([original_files[i]], use_tensor=True)
     new_generated_audio_embed = model.get_audio_embedding_from_filelist([new_generated_files[i]], use_tensor=True)
 
-    # 해당 텍스트 프롬프트로 점수 계산
     original_clap_score = torch.matmul(original_audio_embed, text_embed[i].unsqueeze(0).T).item()
     new_generated_clap_score = torch.matmul(new_generated_audio_embed, text_embed[i].unsqueeze(0).T).item()
     score_difference = new_generated_clap_score - original_clap_score
