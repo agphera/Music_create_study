@@ -37,7 +37,6 @@ for i in range(10):
     new_generated_clap_score = torch.matmul(new_generated_audio_embed, text_embed[i].unsqueeze(0).T).item()
     score_difference = new_generated_clap_score - original_clap_score
 
-    # 결과 출력
     print(f"Text Prompt: \"{text_prompts[i]}\"")
     print(f"CLAP Score for Original Model - {original_files[i]}: {original_clap_score}")
     print(f"CLAP Score for New Generated Model - {new_generated_files[i]}: {new_generated_clap_score}")

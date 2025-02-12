@@ -112,7 +112,7 @@ def create_musicgen_dataset(data_dir, dataset_dir):
                 file_pairs.append((json_path, mp3_path))
             if os.path.exists(wav_path):
                 file_pairs.append((json_path, wav_path))
-    #
+
     for json_path, audio_path in file_pairs:
         with open(json_path, "r") as json_file:
             data = json.load(json_file)
